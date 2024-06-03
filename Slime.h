@@ -1,5 +1,7 @@
 #pragma once
-class FSlime
+#include "Character.h"
+
+class FSlime : public FCharacter
 {
 public:
 	FSlime();

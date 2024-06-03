@@ -1,5 +1,7 @@
 #pragma once
-class FPlayer
+#include "Character.h"
+
+class FPlayer : public FCharacter
 {
 public:
 	FPlayer();
