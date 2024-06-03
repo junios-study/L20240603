@@ -7,7 +7,7 @@ public:
 	FBoar();
 	virtual ~FBoar();
 
-	void Move();
+	virtual void Move() override;
 	void Attack();
 };
 

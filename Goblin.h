@@ -7,7 +7,7 @@ public:
 	FGoblin();
 	virtual ~FGoblin();
 
-	void Move();
+	virtual void Move() override;
 	void Attack();
 };
 

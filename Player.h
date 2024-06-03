@@ -7,7 +7,7 @@ public:
 	FPlayer();
 	virtual ~FPlayer();
 
-	void Move();
+	virtual void Move() override;
 	void Attack();
 
 protected:

@@ -7,7 +7,7 @@ public:
 	FSlime();
 	virtual ~FSlime();
 
-	void Move();
+	virtual void Move() override;
 	void Attack();
 };
 

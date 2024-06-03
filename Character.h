@@ -7,7 +7,7 @@ public:
 	FCharacter();
 	virtual ~FCharacter();
 
-	void Move();
+	virtual void Move();
 	void Attack();
 
 
