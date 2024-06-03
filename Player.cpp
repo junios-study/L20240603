@@ -26,6 +26,11 @@ void FPlayer::Attack()
 	FCharacter::Attack();
 }
 
+void FPlayer::Pickup()
+{
+	cout << "플레이어가 집다.";
+}
+
 void FPlayer::Die()
 {
 }

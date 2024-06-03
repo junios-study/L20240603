@@ -11,64 +11,8 @@ using namespace std;
 
 #include "Character.h"
 
-
-class Parent
-{
-public:
-	virtual void Tick()
-	{
-		cout << "Parent::Do" << endl;
-	}
-
-	int Money;
-};
-
-class Child : public Parent
-{
-public:
-	virtual void Tick() override
-	{
-		cout << "Child::Do" << endl;
-	}
-	int SpendMoney;
-};
-
-
 int main()
 {
-	//[][][][]
-	//
-	//Person
-	//[P]		[C]			[C]
-	//
-	//Person[0] Person[1] Person[2]
-	//vector
-	vector<Parent*> Person;
-
-	Person.push_back(new Parent());
-	Person.push_back(new Parent());
-	Person.push_back(new Parent());
-	Person.push_back(new Child());
-	Person.push_back(new Child());
-	Person.push_back(new Child());
-	Person.push_back(new Child());
-
-	//All Tick
-	for (int i = 0; i < Person.size(); ++i)
-	{
-		Person[i]->Tick();
-	}
-
-	//All delete
-	for (Parent* Parent : Person)
-	{
-		delete Parent;
-	}
-
-	Person.clear();
-
-	return 0;
-
 	srand((unsigned int)time(0));
 
 	vector<FCharacter*> Characters;
@@ -101,7 +45,16 @@ int main()
 	{
 		for (int i = 0; i < Characters.size(); ++i)
 		{
-			Characters[i]->Move();
+			FPlayer* Player = dynamic_cast<FPlayer*>(Characters[i]);
+			if (Player != nullptr)
+			{
+				Player->Pickup();
+			}
+			else
+			{
+				Characters[i]->Move();
+			}
+
 		}
 		//for (auto Character : Characters)
 		//{

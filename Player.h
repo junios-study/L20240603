@@ -10,6 +10,8 @@ public:
 	virtual void Move() override;
 	void Attack();
 
+	void Pickup();
+
 protected:
 	void Die();
 
