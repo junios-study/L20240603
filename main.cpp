@@ -46,7 +46,7 @@ int main()
 		for (int i = 0; i < Characters.size(); ++i)
 		{
 			FPlayer* Player = dynamic_cast<FPlayer*>(Characters[i]);
-			if (Player != nullptr)
+			if (Player)
 			{
 				Player->Pickup();
 			}
