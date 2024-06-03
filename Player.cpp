@@ -7,3 +7,7 @@ FPlayer::FPlayer()
 FPlayer::~FPlayer()
 {
 }
+
+void FPlayer::Die()
+{
+}

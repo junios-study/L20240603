@@ -6,5 +6,8 @@ class FPlayer : public FCharacter
 public:
 	FPlayer();
 	virtual ~FPlayer();
+
+protected:
+	void Die();
 };
 
