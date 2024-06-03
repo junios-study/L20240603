@@ -6,5 +6,8 @@ class FSlime : public FCharacter
 public:
 	FSlime();
 	virtual ~FSlime();
+
+	void Move();
+	void Attack();
 };
 

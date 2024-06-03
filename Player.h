@@ -7,7 +7,12 @@ public:
 	FPlayer();
 	virtual ~FPlayer();
 
+	void Move();
+	void Attack();
+
 protected:
 	void Die();
+
+
 };
 
