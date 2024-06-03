@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <typeinfo>
 
 using namespace std;
 
@@ -10,24 +11,78 @@ using namespace std;
 
 #include "Character.h"
 
+
+class Parent
+{
+public:
+	virtual void Tick()
+	{
+		cout << "Parent::Do" << endl;
+	}
+
+	int Money;
+};
+
+class Child : public Parent
+{
+public:
+	virtual void Tick() override
+	{
+		cout << "Child::Do" << endl;
+	}
+	int SpendMoney;
+};
+
+
 int main()
 {
-	srand(time(0));
+	//[][][][]
+	//
+	//Person
+	//[P]		[C]			[C]
+	//
+	//Person[0] Person[1] Person[2]
+	//vector
+	vector<Parent*> Person;
+
+	Person.push_back(new Parent());
+	Person.push_back(new Parent());
+	Person.push_back(new Parent());
+	Person.push_back(new Child());
+	Person.push_back(new Child());
+	Person.push_back(new Child());
+	Person.push_back(new Child());
+
+	//All Tick
+	for (int i = 0; i < Person.size(); ++i)
+	{
+		Person[i]->Tick();
+	}
+
+	//All delete
+	for (Parent* Parent : Person)
+	{
+		delete Parent;
+	}
+
+	Person.clear();
+
+	return 0;
+
+	srand((unsigned int)time(0));
 
 	vector<FCharacter*> Characters;
 	Characters.push_back(new FPlayer());
 
-	//excel -> Database(¸·³»)
-	int StageMonsterCount[10] = { 10, 10, 1, 2, 2, 2, 3, 3, 5, 6 };
-	int Stage = 1;
-	for (int i = 0; i < StageMonsterCount[Stage]; ++i)
+
+	for (int i = 0; i < 3; ++i)
 	{
 		int Type = rand() % 10; //0-9
 		switch (Type)
 		{
-		case 0: 
-		case 4:
-		case 5:
+		case 6: 
+		case 7:
+		case 8:
 			Characters.push_back(new FGoblin());
 			break;
 		case 1:
@@ -44,10 +99,14 @@ int main()
 
 	while (true)
 	{
-		for (auto Character : Characters)
+		for (int i = 0; i < Characters.size(); ++i)
 		{
-			Character->Move();
+			Characters[i]->Move();
 		}
+		//for (auto Character : Characters)
+		//{
+		//	Character->Move();
+		//}
 	}
 
 	for (auto Character : Characters)
